@@ -1,7 +1,7 @@
 import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { logo as Logo } from "../../utils/constants";
-import { SearchBar } from "../../components/SearchBar";
+import { SearchBar } from "../SearchBar";
 
 export function Navbar() {
   return (
