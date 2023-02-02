@@ -26,7 +26,13 @@ export function SideBar() {
           }}
           key={category.name}
         >
-          <span>{category.icon}</span>
+          <span>
+            <category.icon
+              style={{
+                color: selectedCategory === category.name ? "white" : "red",
+              }}
+            />
+          </span>
           <span>{category.name}</span>
         </button>
       ))}
