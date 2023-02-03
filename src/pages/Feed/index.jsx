@@ -5,13 +5,19 @@ import { fetchNewVideosFromAPI } from "../../services/youtube-api";
 
 export function Feed() {
   const [videos, setVideos] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("New");
 
   useEffect(() => {
-    (async () => {
-      const res = await fetchNewVideosFromAPI();
-      console.log(res.data);
-    })();
-  }, []);
+    async function fetchVideos() {
+      const data = await fetchNewVideosFromAPI(
+        `search?part=snippet&q=${selectedCategory}`
+      );
+
+      setVideos(data.items);
+    }
+
+    fetchVideos();
+  }, [selectedCategory]);
 
   return (
     <Stack sx={{ flexDirection: { sm: "column", md: "row" } }}>
@@ -22,7 +28,10 @@ export function Feed() {
           px: { sx: 0, md: 2 },
         }}
       >
-        <SideBar />
+        <SideBar
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
         <Typography
           className="copyright"
           variant="body2"
@@ -39,7 +48,7 @@ export function Feed() {
           mb={2}
           sx={{ color: "#FFF" }}
         >
-          New
+          {selectedCategory}
           <span style={{ color: "#f31503" }}> videos</span>
         </Typography>
 
