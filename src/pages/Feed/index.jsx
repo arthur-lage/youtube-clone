@@ -1,19 +1,26 @@
 import { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import { SideBar, Videos } from "../../components";
+import { Loading, SideBar, Videos } from "../../components";
 import { fetchNewVideosFromAPI } from "../../services/youtube-api";
 
 export function Feed() {
   const [videos, setVideos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("New");
 
   useEffect(() => {
     async function fetchVideos() {
-      const data = await fetchNewVideosFromAPI(
-        `search?part=snippet&q=${selectedCategory}`
-      );
+      try {
+        const data = await fetchNewVideosFromAPI(
+          `search?part=snippet&q=${selectedCategory}`
+        );
 
-      setVideos(data.items);
+        setVideos(data.items);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     fetchVideos();
@@ -52,7 +59,19 @@ export function Feed() {
           <span style={{ color: "#f31503" }}> videos</span>
         </Typography>
 
-        <Videos videos={videos} />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            {videos ? (
+              <Videos videos={videos} />
+            ) : (
+              <Typography variant="h2" color="gray">
+                Could not fetch videos from API
+              </Typography>
+            )}
+          </>
+        )}
       </Box>
     </Stack>
   );
