@@ -39,7 +39,18 @@ export function VideoCard({
         }}
       >
         <Link to={videoId ? `/watch/${videoId}` : demoVideoUrl}>
-          <Typography variant="subtitle1" fontWeight="bold" color="#fff">
+          <Typography
+            sx={{
+              textOverflow: "ellipsis",
+              overflowWrap: "break-word",
+              width: { lg: "295px", md: "280px", sx: "300px" },
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+            }}
+            variant="subtitle1"
+            fontWeight="bold"
+            color="#fff"
+          >
             {snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}
           </Typography>
         </Link>
