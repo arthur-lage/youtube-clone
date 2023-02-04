@@ -7,7 +7,7 @@ import { Feed, VideoDetails, ChannelDetails, SearchFeed } from "./pages";
 
 export function App() {
   return (
-    <Box sx={{ backgroundColor: "#000" }}>
+    <Box sx={{ background: "#000", minHeight: "100vh" }}>
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Feed />} />

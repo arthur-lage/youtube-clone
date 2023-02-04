@@ -5,8 +5,6 @@ import { CheckCircle } from "@mui/icons-material";
 import {
   demoChannelTitle,
   demoChannelUrl,
-  demoProfilePicture,
-  demoThumbnailUrl,
   demoVideoTitle,
   demoVideoUrl,
 } from "../../utils/constants";
@@ -28,14 +26,18 @@ export function VideoCard({
       <Link to={videoId ? `/watch/${videoId}` : demoVideoUrl}>
         <CardMedia
           alt={snippet?.title}
-          sx={{ width: 358, height: 180 }}
+          sx={{
+            objectFit: "fill",
+            width: { md: "320px", xs: "100%" },
+            height: 180,
+          }}
           image={snippet?.thumbnails?.high?.url}
         />
       </Link>
       <CardContent
         sx={{
           backgroundColor: "#1e1e1e",
-          height: "106px",
+          height: "80px",
         }}
       >
         <Link to={videoId ? `/watch/${videoId}` : demoVideoUrl}>
@@ -62,11 +64,30 @@ export function VideoCard({
               : demoChannelUrl
           }
         >
-          <Typography variant="subtitle2" fontWeight="bold" color="gray">
+          <Typography
+            fontSize="16px"
+            variant="subtitle2"
+            fontWeight="bold"
+            color="gray"
+          >
             {snippet?.channelTitle || demoChannelTitle}
             <CheckCircle sx={{ fontSize: 12, color: "gray", ml: "5px" }} />
           </Typography>
         </Link>
+
+        <Typography
+          variant="body2"
+          color="gray"
+          fontSize="14px"
+          marginTop="10px"
+        >
+          Published at {new Date(snippet?.publishedAt).getFullYear()}-
+          {String(new Date(snippet?.publishedAt).getMonth() + 1).padStart(
+            2,
+            "0"
+          )}
+          -{String(new Date(snippet?.publishedAt).getDate()).padStart(2, "0")}
+        </Typography>
       </CardContent>
     </Card>
   );

@@ -18,6 +18,7 @@ export function Videos({ videos }) {
           ) : (
             ""
           )}
+          {item.id.playlistId ? null : ""}
         </Box>
       ))}
     </Stack>
