@@ -1,13 +1,13 @@
 import { Box, Stack } from "@mui/material";
 import { VideoCard, ChannelCard } from "../";
 
-export function Videos({ videos }) {
+export function Videos({ centerVideos = false, videos }) {
   return (
     <Stack
       direction="row"
       flexWrap="wrap"
       width="100%"
-      justifyContent="start"
+      justifyContent={centerVideos ? "center" : "start"}
       gap={2}
     >
       {videos.map((item, index) => (

@@ -4,10 +4,21 @@ import { Paper, IconButton } from "@mui/material";
 import { Search } from "@mui/icons-material";
 
 export function SearchBar() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  async function handleSearch(e) {
+    e.preventDefault();
+
+    if (!searchTerm) return;
+
+    navigate("/results?search_query=" + searchTerm);
+  }
+
   return (
     <Paper
       component="form"
-      onSubmit={() => {}}
+      onSubmit={handleSearch}
       sx={{
         pl: 2,
         border: "1px solid #e3e3e3",
@@ -19,8 +30,10 @@ export function SearchBar() {
       <input
         placeholder="Search..."
         className="search-bar"
-        value=""
-        onChange={() => {}}
+        value={searchTerm}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+        }}
       />
       <IconButton type="submit" sx={{ p: "10px", color: "red" }}>
         <Search />

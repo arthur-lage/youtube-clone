@@ -64,7 +64,7 @@ export function Feed() {
         ) : (
           <>
             {videos ? (
-              <Videos videos={videos} />
+              <Videos centerVideos={false} videos={videos} />
             ) : (
               <Typography variant="h2" color="gray">
                 Could not fetch videos from API

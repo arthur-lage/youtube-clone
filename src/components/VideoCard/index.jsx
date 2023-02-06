@@ -17,6 +17,7 @@ export function VideoCard({
 }) {
   return (
     <Card
+      className="video-card"
       sx={{
         width: { md: "320px", xs: "100%" },
         boxShadow: "none",

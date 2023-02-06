@@ -112,8 +112,8 @@ export function ChannelDetails() {
                 </Stack>
               </Stack>
 
-              <Box justifyContent="center" marginTop="30px">
-                <Videos videos={videos.items} />
+              <Box marginTop="30px">
+                <Videos centerVideos={true} videos={videos.items} />
               </Box>
             </Stack>
           ) : (

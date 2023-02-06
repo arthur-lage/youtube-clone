@@ -73,6 +73,10 @@ a {
   transform: translate(-50%, -50%);
 }
 
+.video-card:hover {
+  box-shadow: 0px 0px 8px 8px rgba(59, 24, 24, 0.582);
+}
+
 .loader {
   border: 5px solid transparent;
   border-left: 5px solid red;

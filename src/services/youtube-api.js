@@ -46,3 +46,17 @@ export const fetchVideosFromChannel = async (channelId) => {
 
   return data;
 };
+
+export const fetchVideosFromSearchTerm = async (searchTerm) => {
+  const { data } = await axios.get(`${BASE_URL}/search`, {
+    ...options,
+    params: {
+      q: searchTerm,
+      part: "snippet,id",
+      order: "date",
+      maxResults: 50,
+    },
+  });
+
+  return data;
+};

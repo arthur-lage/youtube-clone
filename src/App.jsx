@@ -13,7 +13,7 @@ export function App() {
         <Route path="/" exact element={<Feed />} />
         <Route path="/watch/:videoId" element={<VideoDetails />} />
         <Route path="/channel/:channelId" element={<ChannelDetails />} />
-        <Route path="/search/:searchTerm" element={<SearchFeed />} />
+        <Route path="/results" element={<SearchFeed />} />
       </Routes>
     </Box>
   );
