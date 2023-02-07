@@ -11,7 +11,7 @@ export function App() {
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Feed />} />
-        <Route path="/watch/:videoId" element={<VideoDetails />} />
+        <Route path="/watch" element={<VideoDetails />} />
         <Route path="/channel/:channelId" element={<ChannelDetails />} />
         <Route path="/results" element={<SearchFeed />} />
       </Routes>

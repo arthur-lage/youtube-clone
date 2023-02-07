@@ -60,3 +60,15 @@ export const fetchVideosFromSearchTerm = async (searchTerm) => {
 
   return data;
 };
+
+export const fetchVideoDataByIdFromAPI = async (videoId) => {
+  const { data } = await axios.get(`${BASE_URL}/videos`, {
+    ...options,
+    params: {
+      part: "contentDetails,snippet,statistics",
+      id: videoId,
+    },
+  });
+
+  return data;
+};

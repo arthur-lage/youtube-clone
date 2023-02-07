@@ -24,7 +24,7 @@ export function VideoCard({
         borderRadius: 0,
       }}
     >
-      <Link to={videoId ? `/watch/${videoId}` : demoVideoUrl}>
+      <Link to={videoId ? `/watch?v=${videoId}` : demoVideoUrl}>
         <CardMedia
           alt={snippet?.title}
           sx={{
