@@ -11,6 +11,8 @@ export function Feed() {
   useEffect(() => {
     async function fetchVideos() {
       try {
+        setIsLoading(true);
+
         const data = await fetchNewVideosFromAPI(
           `search?part=snippet&q=${selectedCategory}`
         );
@@ -52,6 +54,7 @@ export function Feed() {
         <Typography
           variant="h4"
           fontWeight="bold"
+          fontFamily="Nunito Sans, serif-sans"
           mb={2}
           sx={{ color: "#FFF" }}
         >

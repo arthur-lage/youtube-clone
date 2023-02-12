@@ -42,6 +42,7 @@ export function ChannelCard({
 
           <Typography
             variant="subtitle1"
+            fontFamily={"Nunito Sans, sans-serif"}
             textAlign="center"
             fontWeight="bold"
             sx={{

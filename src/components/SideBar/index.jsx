@@ -22,6 +22,7 @@ export function SideBar({ selectedCategory, setSelectedCategory }) {
             display: "flex",
             alignItems: "center",
             gap: "8px",
+            fontFamily: "Nunito Sans, sans-serif",
           }}
           key={category.name}
         >

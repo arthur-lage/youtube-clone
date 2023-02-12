@@ -60,6 +60,7 @@ export function ChannelDetails() {
                   display="flex"
                   alignItems="center"
                   gap="8px"
+                  fontFamily="Nunito Sans, serif-sans"
                   fontSize="20px"
                   marginTop="15px"
                 >
@@ -75,7 +76,11 @@ export function ChannelDetails() {
                   marginTop="10px"
                 >
                   {!channelInfo.items[0].statistics.hiddenSubscriberCount ? (
-                    <Typography fontSize="16px" color="#ffffff8b">
+                    <Typography
+                      fontFamily="Nunito Sans, serif-sans"
+                      fontSize="16px"
+                      color="#ffffff8b"
+                    >
                       {numberFormatter(
                         channelInfo.items[0].statistics.subscriberCount,
                         1
@@ -86,11 +91,19 @@ export function ChannelDetails() {
                     ""
                   )}
 
-                  <Typography fontSize="16px" color="#ffffff8b">
+                  <Typography
+                    fontFamily="Nunito Sans, serif-sans"
+                    fontSize="16px"
+                    color="#ffffff8b"
+                  >
                     |
                   </Typography>
 
-                  <Typography fontSize="16px" color="#ffffff8b">
+                  <Typography
+                    fontFamily="Nunito Sans, serif-sans"
+                    fontSize="16px"
+                    color="#ffffff8b"
+                  >
                     {numberFormatter(
                       channelInfo.items[0].statistics.viewCount,
                       1
@@ -98,11 +111,19 @@ export function ChannelDetails() {
                     total views
                   </Typography>
 
-                  <Typography fontSize="16px" color="#ffffff8b">
+                  <Typography
+                    fontFamily="Nunito Sans, serif-sans"
+                    fontSize="16px"
+                    color="#ffffff8b"
+                  >
                     |
                   </Typography>
 
-                  <Typography fontSize="16px" color="#ffffff8b">
+                  <Typography
+                    fontFamily="Nunito Sans, serif-sans"
+                    fontSize="16px"
+                    color="#ffffff8b"
+                  >
                     {numberFormatter(
                       channelInfo.items[0].statistics.videoCount,
                       1

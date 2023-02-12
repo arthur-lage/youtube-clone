@@ -13,6 +13,8 @@ export function SearchBar() {
     if (!searchTerm) return;
 
     navigate("/results?search_query=" + searchTerm);
+
+    navigate(0);
   }
 
   return (
@@ -30,6 +32,7 @@ export function SearchBar() {
       <input
         placeholder="Search..."
         className="search-bar"
+        style={{ fontFamily: "Nunito Sans, sans-serif" }}
         value={searchTerm}
         onChange={(e) => {
           setSearchTerm(e.target.value);

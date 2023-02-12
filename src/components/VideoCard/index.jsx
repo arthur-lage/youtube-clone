@@ -45,6 +45,7 @@ export function VideoCard({
           <Typography
             sx={{
               textOverflow: "ellipsis",
+              fontFamily: "Nunito Sans, sans-serif",
               overflowWrap: "break-word",
               width: { lg: "295px", md: "280px", sx: "300px" },
               whiteSpace: "nowrap",
@@ -68,8 +69,16 @@ export function VideoCard({
           <Typography
             fontSize="16px"
             variant="subtitle2"
+            fontFamily={"Nunito Sans, sans-serif"}
             fontWeight="bold"
             color="gray"
+            sx={{
+              overflowWrap: "break-word",
+              width: { lg: "260px", md: "280px", sx: "290px" },
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+            }}
           >
             {snippet?.channelTitle || demoChannelTitle}
             <CheckCircle sx={{ fontSize: 12, color: "gray", ml: "5px" }} />
@@ -79,15 +88,16 @@ export function VideoCard({
         <Typography
           variant="body2"
           color="gray"
+          fontFamily={"Nunito Sans, sans-serif"}
           fontSize="14px"
           marginTop="10px"
         >
-          Published at {new Date(snippet?.publishedAt).getFullYear()}-
-          {String(new Date(snippet?.publishedAt).getMonth() + 1).padStart(
-            2,
-            "0"
-          )}
-          -{String(new Date(snippet?.publishedAt).getDate()).padStart(2, "0")}
+          Published at{" "}
+          {new Date(snippet?.publishedAt).toLocaleDateString("en-US", {
+            year: "numeric",
+            day: "2-digit",
+            month: "2-digit",
+          })}
         </Typography>
       </CardContent>
     </Card>

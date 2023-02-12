@@ -14,7 +14,7 @@ export function SearchFeed() {
 
   const query = useQuery();
 
-  const searchQuery = query.get("search_query");
+  let searchQuery = query.get("search_query");
 
   useEffect(() => {
     async function fetchVideos() {
@@ -44,6 +44,7 @@ export function SearchFeed() {
                 marginBottom="40px"
                 variant="body2"
                 fontSize="22px"
+                fontFamily="Nunito Sans, serif-sans"
                 marginLeft={"20px"}
                 color="#fff"
               >
